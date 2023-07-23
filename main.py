@@ -1,4 +1,5 @@
 import os
+import constants
 from dotenv import load_dotenv
 import streamlit as st
 from dataclasses import dataclass
@@ -10,7 +11,7 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.llms import OpenAI
 from langchain.callbacks import get_openai_callback
 
-load_dotenv()
+os.environ["OPENAI_API_KEY"] = constants.OPENAI_API_KEY
 
 # read pdf
 loader = PyPDFLoader("data/Guidebook.pdf")
